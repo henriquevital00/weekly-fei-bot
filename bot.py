@@ -3,11 +3,13 @@ from selenium.webdriver.common.by import By
 from datetime import date
 import locale
 import json
+import glob
 
 
 class Bot(object):
     def __init__(self):
-        self.driver = webdriver.Chrome(executable_path=r"./chromedriver")
+        self.driver = webdriver.Chrome(
+            executable_path=str(glob.glob("./chromedriver*")[0]))
         self.username = ""
         self.password = ""
         self.subjects = set()
