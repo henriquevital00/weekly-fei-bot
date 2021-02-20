@@ -3,7 +3,6 @@ from selenium.webdriver.common.by import By
 from datetime import date
 import locale
 import json
-import time
 
 
 class Bot(object):
@@ -44,7 +43,6 @@ class Bot(object):
                         str(number_of_subjects)).send_keys(text)
                     self.driver.find_element_by_id(
                         "cadastrar-" + str(number_of_subjects)).click()
-                    time.sleep(3)
                 except:
                     print('Element not found')
                 finally:
