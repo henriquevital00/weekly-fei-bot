@@ -41,9 +41,10 @@ class Bot(object):
                 self.subjects.update([subject])
                 text = self.get_text_stars_json(subject.rstrip())
                 try:
-                    self.driver.find_element_by_id(
-                        'consideracao-' +
-                        str(number_of_subjects)).send_keys(text)
+                    text_area = self.driver.find_element_by_id(
+                        'consideracao-' + str(number_of_subjects))
+                    if text_area.text == "":
+                        text_area.send_keys(text)
                     self.driver.find_element_by_id(
                         "cadastrar-" + str(number_of_subjects)).click()
                 except:
