@@ -27,7 +27,7 @@ class Bot(object):
         week_day = date.today().weekday()
         number_of_subjects = 1
         count = 0
-        for day in range(0, week_day):
+        for day in range(0, week_day + 1):
             self.driver.find_element_by_link_text(
                 self.days_of_week[day]).click()
             test = self.driver.find_element_by_id("tab-semana-" + str(day + 1))
