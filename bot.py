@@ -4,6 +4,7 @@ from datetime import date
 import locale
 import json
 import glob
+import time
 
 
 class Bot(object):
@@ -29,8 +30,8 @@ class Bot(object):
         number_of_subjects = 1
         count = 0
         for day in range(0, week_day + 1):
-            self.driver.find_element_by_link_text(
-                self.days_of_week[day]).click()
+            self.driver.find_element_by_xpath(
+                '//a[@href="#tab-semana-{}"]'.format(day + 1)).click()
             test = self.driver.find_element_by_id("tab-semana-" + str(day + 1))
             count += len(
                 test.find_elements_by_xpath(".//ul[starts-with(@id,'aula-')]"))
@@ -38,7 +39,7 @@ class Bot(object):
                 subject = self.driver.find_element_by_id(
                     "aula-" + str(number_of_subjects)).text.split("-")[0]
                 self.subjects.update([subject])
-                text = self.get_text_stars_json(subject)
+                text = self.get_text_stars_json(subject.rstrip())
                 try:
                     self.driver.find_element_by_id(
                         'consideracao-' +
@@ -49,6 +50,7 @@ class Bot(object):
                     print('Element not found')
                 finally:
                     number_of_subjects += 1
+        self.driver.close()
 
     def load_config(self):
         try:
@@ -66,6 +68,3 @@ class Bot(object):
         self.driver.find_element_by_id("Usuario").send_keys(self.username)
         self.driver.find_element_by_id("Senha").send_keys(self.password)
         self.driver.find_element_by_id("btn-login").click()
-
-    def send_feedback(self):
-        self.driver.close()

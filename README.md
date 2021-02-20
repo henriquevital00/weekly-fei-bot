@@ -1,4 +1,4 @@
-# weekly-fei-boot
+# weekly-fei-bot
 
 # Introduction
 This objective of this project is to automate the daily feedback of the [FEI](https://portal.fei.edu.br/) college.
