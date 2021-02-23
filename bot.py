@@ -29,6 +29,8 @@ class Bot(object):
         week_day = date.today().weekday()
         number_of_subjects = 1
         count = 0
+        if week_day == 6:
+            return
         for day in range(0, week_day + 1):
             self.driver.find_element_by_xpath(
                 '//a[@href="#tab-semana-{}"]'.format(day + 1)).click()
