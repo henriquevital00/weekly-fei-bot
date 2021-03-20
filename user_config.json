@@ -1,0 +1,30 @@
+{
+    "user": {
+        "username": "unifhcarvalho",
+        "password": "kage_bushin_123"
+    },
+    "subjects" : {
+        "TÓP.AVANÇ.DE REDES DE COMPUT.":{
+            "text": "Muito bom parabens pela aula"
+        },
+        "BANCO DE DADOS":{
+            "text": "Muito bom parabens pela aula"
+        },
+        "ENGENHARIA DE SOFTWARE":{
+            "text": "Muito bom parabens pela aula"
+        },
+        "PESQUISA OPERACIONAL":{
+            "text": "Muito bom parabens pela aula"
+        },
+        "ANÁLISE COMPLEX.DE ALGORITMOS":{
+            "text": "Muito bom parabens pela aula"
+        },
+        "PROBABILIDADE E ESTATISTICA":{
+            "text": "Muito bom parabens pela aula"
+        },
+        "LING.FORMAIS E AUTÔMATOS": {
+            "text": "Muito bom parabens pela aula"
+        }
+
+    }
+}
