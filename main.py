@@ -4,7 +4,6 @@ import sys
 
 def main():
     bot = Bot()
-    bot.load_config()
     bot.login()
     bot.load_subjects()
 
