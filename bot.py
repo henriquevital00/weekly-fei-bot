@@ -1,25 +1,27 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 from datetime import date
 import locale
 import json
 import glob
 import time
-import os
 
 
 class Bot(object):
     def __init__(self):
-        chrome_options = webdriver.ChromeOptions()
-        chrome_options.binary_location = os.environ.get('GOOGLE_CHROME_BIN')
-        chrome_options.add_argument("--headless")
-        chrome_options.add_argument("--disable-dev-shm-usage")
-        chrome_options.add_argument("--no-sandbox")
-        self.driver = webdriver.Chrome(
-            executable_path=os.environ.get('CHROMEDRIVER_PATH'),
-            chrome_options=chrome_options)
-        self.username = 'unifhcarvalho'
-        self.password = 'hc65013'
+        self.options = Options()
+        self.options.binary_location = '/opt/headless-chromium'
+        self.options.add_argument('--headless')
+        self.options.add_argument('--no-sandbox')
+        self.options.add_argument('--start-maximized')
+        self.options.add_argument('--start-fullscreen')
+        self.options.add_argument('--single-process')
+        self.options.add_argument('--disable-dev-shm-usage')
+
+        self.driver = webdriver.Chrome('/opt/chromedriver', options=self.options)
+        self.username = 'username'
+        self.password = 'password'
         self.subjects = set()
         self.days_of_week = [
             "segunda-feira", "terça-feira", "quarta-feira", "quinta-feira",
@@ -59,3 +61,8 @@ class Bot(object):
         self.driver.find_element_by_id("Usuario").send_keys(self.username)
         self.driver.find_element_by_id("Senha").send_keys(self.password)
         self.driver.find_element_by_id("btn-login").click()
+
+def lambda_handler(event, context):
+    bot = Bot()
+    bot.login()
+    bot.load_subjects()
