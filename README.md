@@ -1,9 +1,9 @@
 # weekly-fei-bot
 
-# Introduction
+## Introduction
 This objective of this project is to automate the daily feedback of the [FEI](https://portal.fei.edu.br/) college.
 
-# How to run on [AWS](https://aws.amazon.com/)
+## 🚀 How to run on [AWS](https://aws.amazon.com/)
 In order to run the bot on aws follow the next steps:
 
 1. Configuring credentials
