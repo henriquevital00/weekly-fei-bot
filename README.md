@@ -18,6 +18,7 @@ In order to run the bot on aws follow the next steps:
    - Insert a name and upload the file **chrome_headless.zip**, this file is in the repository that you cloned
      ![](images/createLambda.png)
    - Add the layer
+   
      ![](images/addLayer.png)
 
    - Copy the code of [bot.py](https://github.com/henriquevital00/weekly-fei-bot/blob/main/bot.py) and paste in code source
