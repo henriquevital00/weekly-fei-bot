@@ -29,5 +29,5 @@ In order to run the bot on aws follow the next steps:
    - Go to Cloud Watch, click in Events and Rules
    - Create a rule
      ![](images/createRule.png)
-   - Change the con expression to match your study time
+   - Change the con expression to match your study time, **be carefull the time used is in GMT**, to convert to our local our in Brazil, **add 3 hours to the hour that you want**
    - for each different time, create a new rule and link to the lambda function in targets
